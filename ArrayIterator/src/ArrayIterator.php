@@ -4,10 +4,13 @@ namespace tomtomsen\Iterators;
 
 class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Serializable
 {
-	private $_array;
+	private $_storage;
 	private $_flags;
 	private $_beyondLastField;
 
+	/**
+	 * \ArrayIterator::__construct
+	 */
 	public function __construct($array = array(), $flags = 0) {
 		if (!is_array($array) && !is_object($array)) {
 			throw new \InvalidArgumentException('Passed variable is not an array or object, using empty array instead');
@@ -17,7 +20,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 			throw new \TypeError('ArrayIterator::__construct() expects parameter 2 to be integer, ' . gettype($flags) . ' given');
 		}
 
-		$this->_array = $array;
+		$this->_storage = $array;
 		$this->setFlags($flags);
 		$this->rewind();
 	}
@@ -46,7 +49,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	public function offsetExists($offset) {
 		$this->validateOffset($offset);
 
-		return (bool) array_key_exists($offset, $this->_array);
+		return (bool) array_key_exists($offset, $this->_storage);
 	}
 
 	/**
@@ -55,7 +58,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	public function offsetGet($offset) {
 		$this->validateOffset($offset);
 
-		return $this->_array[$offset];
+		return $this->_storage[$offset];
 	}
 
 	/**
@@ -64,7 +67,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	public function offsetSet($offset, $value) {
 		$this->validateOffset($offset);
 
-		$this->_array[$offset] = $value;
+		$this->_storage[$offset] = $value;
 	}
 
 	/**
@@ -73,7 +76,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	public function offsetUnset($offset) {
 		$this->validateOffset($offset);
 
-		unset($this->_array[$offset]);
+		unset($this->_storage[$offset]);
 	}
 
 	protected function validateOffset($offset) {
@@ -88,12 +91,12 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	public function seek($position) {
 
 		if (!is_numeric($position)) {
-			trigger_error('ArrayIterator::seek() expects parameter 1 to be integer, ' . gettype($flags) . ' given', E_USER_WARNING);
+			trigger_error('ArrayIterator::seek() expects parameter 1 to be integer, ' . gettype($position) . ' given', E_USER_WARNING);
 		}
 
 		$this->rewind();
 
-		for($i = $position; $i--; ) {
+		for ($i = $position; $i--; ) {
 			$this->next();
 
 			if ($this->_beyondLastField) {
@@ -106,22 +109,22 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	 * SeekableIterator::current
 	 */
 	public function current() {
-		return current($this->_array);
+		return current($this->_storage);
 	}
 
 	/**
 	 * SeekableIterator::key
 	 */
 	public function key() {
-		return key($this->_array);
+		return key($this->_storage);
 	}
 
 	/**
 	 * SeekableIterator::next
 	 */
 	public function next() {
-		$next = next($this->_array);
-		$key = key($this->_array);
+		$next = next($this->_storage);
+		$key = key($this->_storage);
 
 		if (!isset($key)) {
 			$this->_beyondLastField = true;
@@ -135,74 +138,74 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 	 */
 	public function rewind() {
 		$this->_beyondLastField = false;
-		reset($this->_array);
+		reset($this->_storage);
 	}
 
 	/**
 	 * SeekableIterator::valid
 	 */
 	public function valid() {
-		return false !== current($this->_array);
+		return false !== current($this->_storage);
+	}
+
+	public function append($value) {
+		array_push($this->_storage, $value);
 	}
 
 	/**
 	 * Countable::count
 	 */
 	public function count() {
-		return count($this->_array);
+		return count($this->_storage);
 	}
 
 	/**
 	 * Serializable::serialize
 	 */
 	public function serialize() {
-		return serialize($this->_array);
+		return serialize([$this->_flags, $this->_storage]);
 	}
 
 	/**
 	 * Serializable::unserialize
 	 */
 	public function unserialize($serialized) {
-		return unserialize($serialized);
-	}
-
-	public function append($value) {
-		array_push($this->_array, $value);
+		list($this->_flags, $this->_storage) = unserialize($serialized);
 	}
 
 	public function asort() {
-		asort($this->_array);
-	}
-
-	public function getArrayCopy() {
-		return $this->_array;
-	}
-
-	public function getFlags() {
-		return $this->_flags;
+		asort($this->_storage);
 	}
 
 	public function ksort() {
-		ksort($this->_array);
+		ksort($this->_storage);
 	}
 
 	public function natcasesort() {
-		natcasesort($this->_array);
+		natcasesort($this->_storage);
 	}
 
 	public function natsort() {
-		natsort($this->_array);
+		natsort($this->_storage);
+	}
+
+	public function uasort($cmp_function) {
+		uasort($this->_storage, $cmp_function);
+	}
+
+	public function uksort($cmp_function) {
+		uksort($this->_storage, $cmp_function);
+	}
+
+	public function getArrayCopy() {
+		return $this->_storage;
 	}
 
 	public function setFlags($flags) {
 		$this->_flags  = $flags;
 	}
 
-	public function uasort($cmp_function) {
-		uasort($this->_array, $cmp_function);
-	}
-
-	public function uksort($cmp_function) {
-		uksort($this->_array, $cmp_function);
+	public function getFlags() {
+		return $this->_flags;
 	}
 }
