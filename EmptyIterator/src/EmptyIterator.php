@@ -21,5 +21,4 @@ class EmptyIterator implements \Iterator
 	public function valid() /* bool */ {
 		return false;
 	}
-
 }
