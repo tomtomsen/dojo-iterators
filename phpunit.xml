@@ -5,6 +5,7 @@
 		<testsuite name="My Test Suite">
 			<directory suffix="Test.php">AppendIterator/test</directory>
 			<directory suffix="Test.php">ArrayIterator/test</directory>
+			<directory suffix="Test.php">FilterIterator/test</directory>
 		</testsuite>
 	</testsuites>
 </phpunit>
