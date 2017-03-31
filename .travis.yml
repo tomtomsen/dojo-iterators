@@ -4,6 +4,3 @@ php:
   - '7.0'
   - '7.1'
   - nightly
-
-script:
-  - sh -c "vendor/bin/phpcs --report=full --extensions=php -p --standard=PSR2 src/ tests/"
