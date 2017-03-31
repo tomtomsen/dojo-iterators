@@ -1,4 +1,5 @@
 # Coding Dojo: Implementation of SPL Iterators
+[![Build Status](https://travis-ci.org/tomtomsen/dojo-iterators.svg?branch=master)](https://travis-ci.org/tomtomsen/dojo-iterators)
 
 To improve my coding skills, I try to implement SPL Iterators on my own.
 
