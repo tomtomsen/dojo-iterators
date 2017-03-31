@@ -7,7 +7,8 @@ namespace tomtomsen\Iterators\tests\FilterIterator;
  */
 class FilterIteratorTest extends BaseFilterIteratorTest
 {
-	protected function getIterator(...$params) {
-		return new FilterIteratorImpl(...$params);
-	}
+    protected function getIterator(...$params)
+    {
+        return new FilterIteratorImpl(...$params);
+    }
 }
