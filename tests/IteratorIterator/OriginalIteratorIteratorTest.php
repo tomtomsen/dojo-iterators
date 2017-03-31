@@ -7,7 +7,8 @@ namespace tomtomsen\Iterators\tests\IteratorIterator;
  */
 class OriginalIteratorIteratorTest extends BasicIteratorIteratorTest
 {
-	protected function getIterator(...$params) {
-		return new \IteratorIterator(...$params);
-	}
+    protected function getIterator(...$params)
+    {
+        return new \IteratorIterator(...$params);
+    }
 }

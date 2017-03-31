@@ -9,7 +9,8 @@ use tomtomsen\Iterators\IteratorIterator;
  */
 class IteratorIteratorTest extends BasicIteratorIteratorTest
 {
-	protected function getIterator(...$params) {
-		return new IteratorIterator(...$params);
-	}
+    protected function getIterator(...$params)
+    {
+        return new IteratorIterator(...$params);
+    }
 }

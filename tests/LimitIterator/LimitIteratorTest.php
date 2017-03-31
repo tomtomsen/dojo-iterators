@@ -6,7 +6,8 @@ use tomtomsen\Iterators\LimitIterator;
 
 class LimitIteratorTest extends BaseLimitIteratorTest
 {
-	public function getIterator(...$params) {
-		return new LimitIterator(...$params);
-	}
+    public function getIterator(...$params)
+    {
+        return new LimitIterator(...$params);
+    }
 }
