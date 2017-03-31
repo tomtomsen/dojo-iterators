@@ -15,7 +15,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 	 * @test
 	 * @dataProvider getInvalidConstructorArrayParam
 	 * @expectedException \InvalidArgumentException
-	 * @expectedExceptionMessage Passed variable is not an array or object, using empty array instead
+	 * @expectedExceptionMessage Passed variable is not an array or object
 	 */
 	public function testConstructorWithInvalidArrayThrowsInvalidArgumentException($invalidArrayParam) {
 		$this->createArrayIterator($invalidArrayParam);
