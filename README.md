@@ -6,7 +6,7 @@ To improve my coding skills, I try to implement SPL Iterators on my own.
 - [ ] [AppendIterator](http://php.net/manual/class.appenditerator.php "Documentation of SPL AppendIterator")
 - [x] [ArrayIterator](http://php.net/manual/class.arrayiterator.php "Documentation of SPL ArrayIterator")
 - [ ] [CachingIterator](http://php.net/manual/class.cachingiterator.php "Documentation of SPL CachingIterator")
-- [ ] [CallbackFilterIterator](http://php.net/manual/class.callbackfilteriterator.php "Documentation of SPL CallbackFilterIterator")
+- [x] [CallbackFilterIterator](http://php.net/manual/class.callbackfilteriterator.php "Documentation of SPL CallbackFilterIterator")
 - [ ] [DirectoryIterator](http://php.net/manual/class.directoryiterator.php "Documentation of SPL DirectoryIterator")
 - [x] [EmptyIterator](http://php.net/manual/class.emptyiterator.php "Documentation of SPL EmptyIterator")
 - [ ] [FilesystemIterator](http://php.net/manual/class.filesystemiterator.php "Documentation of SPL FilesystemIterator")
