@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\InfiniteIterator;
 /**
  * Basic InifiteIterator test class
  */
-abstract class BasicInfiniteIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BasicInfiniteIteratorTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * Returns an instance of the InfiniteIterator class

@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\FilterIterator;
 
-abstract class BaseFilterIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BaseFilterIteratorTest extends \PHPUnit_Framework_TestCase
 {
     abstract protected function getIterator(...$params);
 

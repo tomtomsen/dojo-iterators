@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\NoRewindIterator;
 /**
  * @group NoRewindIterator
  */
-abstract class BasicNoRewindIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BasicNoRewindIteratorTest extends \PHPUnit_Framework_TestCase
 {
     abstract protected function getIterator();
 

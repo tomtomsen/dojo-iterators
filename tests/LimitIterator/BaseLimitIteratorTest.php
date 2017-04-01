@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\LimitIterator;
 
-abstract class BaseLimitIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BaseLimitIteratorTest extends \PHPUnit_Framework_TestCase
 {
     abstract protected function getIterator(...$params);
 
@@ -190,7 +190,7 @@ abstract class BaseLimitIteratorTest extends \PHPUnit\Framework\TestCase
     /**
      * @test
      * @group \LimitIterator::seek
-     * @expectedException \PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessageRegExp /^[\w\\]+::seek\(\) expects parameter 1 to be integer, array given/
      */
     public function testSeekWithInvalidArgument()

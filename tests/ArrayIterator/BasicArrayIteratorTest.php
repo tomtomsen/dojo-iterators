@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\ArrayIterator;
 
-abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 {
     abstract public function getIteratorClass();
 
@@ -65,7 +65,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetExistsWithInvalidOffset()
@@ -98,7 +98,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetGetWithInvalidOffset()
@@ -134,7 +134,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetSetWithInvalidOffset()
@@ -247,7 +247,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessageRegExp /expects parameter 1 to be integer/
      */
     public function testSeekWithInvalidArgument()
@@ -309,7 +309,7 @@ abstract class BasicArrayIteratorTest extends \PHPUnit\Framework\TestCase
 
     /**
      * @test
-     * @expectedException PHPUnit\Framework\Error\Warning
+     * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage unserialize() expects parameter 1 to be string, object given
      */
     public function testUnserializeWithInvalidArgument()

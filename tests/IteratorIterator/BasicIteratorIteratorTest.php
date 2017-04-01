@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\IteratorIterator;
 
-abstract class BasicIteratorIteratorTest extends \PHPUnit\Framework\TestCase
+abstract class BasicIteratorIteratorTest extends \PHPUnit_Framework_TestCase
 {
     abstract  protected function getIterator();
 
