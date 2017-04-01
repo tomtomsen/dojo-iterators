@@ -12,7 +12,7 @@ To improve my coding skills, I try to implement SPL Iterators on my own.
 - [ ] FilesystemIterator
 - [x] FilterIterator
 - [ ] GlobIterator
-- [ ] InfiniteIterator
+- [x] [InfiniteIterator] (http://php.net/manual/class.infiniteiterator.php "Documentation of SPL InfiniteIterator")
 - [x] IteratorIterator
 - [x] LimitIterator
 - [ ] MultipleIterator
