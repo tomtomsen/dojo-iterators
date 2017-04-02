@@ -13,6 +13,15 @@ abstract class EmptyIteratorTestBase extends IteratorTestBase
         $this->assertFalse($iterator->valid());
     }
 
+    public function testNext()
+    {
+        $iterator = $this->getIterator();
+
+        $iterator->rewind();
+        $iterator->next();
+        $this->assertFalse($iterator->valid());
+    }
+
     /**
      * @test
      * @expectedException \BadMethodCallException
