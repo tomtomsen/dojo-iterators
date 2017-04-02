@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\EmptyIterator;
 
-class OriginalEmptyIteratorTest extends BasicEmptyIteratorTest
+class OriginalEmptyIteratorTest extends EmptyIteratorTestBase
 {
     protected function getIterator(...$params)
     {

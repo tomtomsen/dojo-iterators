@@ -7,7 +7,7 @@ use tomtomsen\Iterators\IteratorIterator;
 /**
  * @group IteratorIterator
  */
-class IteratorIteratorTest extends BasicIteratorIteratorTest
+class IteratorIteratorTest extends IteratorIteratorTestBase
 {
     protected function getIterator(...$params)
     {

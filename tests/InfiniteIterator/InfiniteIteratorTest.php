@@ -10,7 +10,7 @@ use tomtomsen\Iterators\InfiniteIterator;
  * @group InfiniteIterator
  * @group \tomtomsen\Iterators\InfiniteIterator
  */
-class InfiniteIteratorTest extends BasicInfiniteIteratorTest
+class InfiniteIteratorTest extends InfiniteIteratorTestBase
 {
     /**
      * @inheritdoc

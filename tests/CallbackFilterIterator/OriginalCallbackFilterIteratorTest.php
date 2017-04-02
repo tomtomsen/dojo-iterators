@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\CallbackFilterIterator;
 
-class OriginalCallbackFilterIteratorTest extends BasicCallbackFilterIteratorTest
+class OriginalCallbackFilterIteratorTest extends CallbackFilterIteratorTestBase
 {
     protected function getIterator(...$params)
     {

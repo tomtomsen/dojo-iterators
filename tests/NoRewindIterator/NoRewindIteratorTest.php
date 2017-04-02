@@ -4,7 +4,7 @@ namespace tomtomsen\Iterators\tests\NoRewindIterator;
 
 use tomtomsen\Iterators\NoRewindIterator;
 
-class NoRewindIteratorTest extends BasicNoRewindIteratorTest
+class NoRewindIteratorTest extends NoRewindIteratorTestBase
 {
     protected function getIterator(...$params)
     {

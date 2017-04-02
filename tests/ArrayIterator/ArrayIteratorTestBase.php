@@ -2,84 +2,56 @@
 
 namespace tomtomsen\Iterators\tests\ArrayIterator;
 
-abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
+use tomtomsen\Iterators\tests\IteratorTestBase;
+
+/**
+ * @group ArrayIterator
+ */
+abstract class ArrayIteratorTestBase extends IteratorTestBase
 {
-    abstract public function getIteratorClass();
-
-    public function createArrayIterator(...$params)
-    {
-        $className = $this->getIteratorClass();
-        return new $className(...$params);
-    }
-
     /**
      * @test
-     * @dataProvider getInvalidConstructorArrayParam
+     * @group ArrayIterator::__construct
+     * @group ArrayIterator::__construct::$array
      * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Passed variable is not an array or object
      */
-    public function testConstructorWithInvalidArrayThrowsInvalidArgumentException($invalidArrayParam)
+    public function testConstructorWithInvalidArrayThrowsInvalidArgumentException()
     {
-        $this->createArrayIterator($invalidArrayParam);
-    }
-
-    /**
-     * Invalid Array Argument
-     *
-     * @return array[] List of parameters
-     */
-    public function getInvalidConstructorArrayParam()
-    {
-        return [
-            [true],
-            [27],
-            [null],
-            ["some string"],
-        ];
+        $this->getIterator(27);
     }
 
     /**
      * @test
-     * @dataProvider getInvalidConstructorFlagParam
+     * @group ArrayIterator::__construct
+     * @group ArrayIterator::__construct::$flags
      * @expectedException \TypeError
      * @expectedExceptionMessageRegExp /expects parameter 2 to be integer/
      */
-    public function testConstructorWithInvalidFlagArgument($invalidFlagParam)
+    public function testConstructorWithInvalidFlagArgument()
     {
-        $this->createArrayIterator([], $invalidFlagParam);
-    }
-
-    /**
-     * Invalid Flag Argument
-     *
-     * @return array[] List of parameters
-     */
-    public function getInvalidConstructorFlagParam()
-    {
-        return [
-            ['test'],
-            [[]],
-            [new \stdClass()],
-        ];
+        $this->getIterator([], 'string');
     }
 
     /**
      * @test
+     * @group ArrayIterator::offsetExists
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetExistsWithInvalidOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $iterator->offsetExists([]);
     }
 
     /**
      * @test
+     * @group ArrayIterator::offsetExists
      */
     public function testOffsetExistsWithExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $offsetExists = $iterator->offsetExists('2');
 
         $this->assertTrue($offsetExists);
@@ -87,10 +59,11 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::offsetExists
      */
     public function testOffsetExistsWithNotExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $offsetExists = $iterator->offsetExists('4');
 
         $this->assertFalse($offsetExists);
@@ -98,21 +71,23 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::offsetGet
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetGetWithInvalidOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $iterator->offsetGet([]);
     }
 
     /**
      * @test
+     * @group ArrayIterator::offsetGet
      */
     public function testOffsetGetWithExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $value = $iterator->offsetGet('2');
 
         $this->assertEquals('second', $value);
@@ -120,10 +95,11 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::offsetGet
      */
     public function testOffsetGetWithNotExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
 
         $reportLevel = error_reporting(E_ALL ^  E_NOTICE);
         $value = $iterator->offsetGet(4);
@@ -134,21 +110,24 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::offsetSet
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage Illegal offset type
      */
     public function testOffsetSetWithInvalidOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $iterator->offsetSet([], 'test');
     }
 
     /**
      * @test
+     * @group ArrayIterator::offsetSet
+     * @group ArrayIterator::offsetGet
      */
     public function testOffsetSetWithExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $iterator->offsetSet('2', 'zwei');
 
         $value = $iterator->offsetGet('2');
@@ -157,10 +136,12 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::offsetSet
+     * @group ArrayIterator::offsetGet
      */
     public function testOffsetSetWithNotExistingOffset()
     {
-        $iterator = $this->createArrayIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
+        $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
         $iterator->offsetSet('4', 'forth');
 
         $value = $iterator->offsetGet('4');
@@ -174,7 +155,8 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $arr = ['1' => 'first', '2' => 'second', '3' => 'third'];
 
-        $iterator = $this->createArrayIterator($arr);
+        $iterator = $this->getIterator($arr);
+        $this->assertEquals(3, count($iterator));
         foreach ($iterator as $key => $value) {
             $this->assertEquals($arr[$key], $value);
         }
@@ -182,20 +164,21 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::setFlags
      */
     public function testFlags()
     {
-        $iterator = $this->createArrayIterator([], 0);
+        $iterator = $this->getIterator([], 0);
         $iterator->p = 'p';
         $iterator['a'] = 'a';
         $this->assertEquals(['a' => 'a'], $iterator->getArrayCopy());
 
-        $iterator = $this->createArrayIterator([], 1);
+        $iterator = $this->getIterator([], 1);
         $iterator->p = 'p';
         $iterator['a'] = 'a';
         $this->assertEquals(['a' => 'a'], $iterator->getArrayCopy());
 
-        $iterator = $this->createArrayIterator([], 2);
+        $iterator = $this->getIterator([], 2);
         $iterator->p = 'p';
         $iterator['a'] = 'a';
         $this->assertEquals(['p' => 'p', 'a' => 'a'], $iterator->getArrayCopy());
@@ -203,11 +186,12 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::setFlags
      */
     public function testSetFlags()
     {
 
-        $iterator = $this->createArrayIterator([]);
+        $iterator = $this->getIterator([]);
         $iterator['a'] = 'a';
         $iterator->setFlags(3);
         $iterator->p = 'p';
@@ -218,12 +202,13 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::getFlags
      */
     public function testGetFlagsSetByConstructor()
     {
         $expectedFlags = 2;
 
-        $iterator = $this->createArrayIterator([], $expectedFlags);
+        $iterator = $this->getIterator([], $expectedFlags);
 
         $actualFlags = $iterator->getFlags();
 
@@ -232,12 +217,13 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::getFlags
      */
     public function testGetFlagsReturnsValueSetBySetFlags()
     {
         $expectedFlags = 2;
 
-        $iterator = $this->createArrayIterator([], 0);
+        $iterator = $this->getIterator([], 0);
         $iterator->setFlags($expectedFlags);
 
         $actualFlags = $iterator->getFlags();
@@ -247,29 +233,32 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::seek
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessageRegExp /expects parameter 1 to be integer/
      */
     public function testSeekWithInvalidArgument()
     {
-        $iterator = $this->createArrayIterator([]);
+        $iterator = $this->getIterator([]);
         $iterator->seek('string');
     }
 
     /**
      * @test
+     * @group ArrayIterator::seek
      */
     public function testSeekToValidPosition()
     {
         $arr = ['1' => 'first', '2' => 'second', '3' => 'third'];
 
-        $iterator = $this->createArrayIterator($arr);
+        $iterator = $this->getIterator($arr);
         $iterator->seek(2);
         $this->assertEquals('third', $iterator->current());
     }
 
     /**
      * @test
+     * @group ArrayIterator::seek
      * @expectedException \OutOfBoundsException
      * @expectedExceptionMessage Seek position 4 is out of range
      */
@@ -277,18 +266,19 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
     {
         $arr = ['1' => 'first', '2' => 'second', '3' => 'third'];
 
-        $iterator = $this->createArrayIterator($arr);
+        $iterator = $this->getIterator($arr);
         $iterator->seek(4);
     }
 
     /**
      * @test
+     * @group ArrayIterator::key
      */
     public function testAssociativeKey()
     {
         $arr = ['first' => 'first element'];
 
-        $iterator = $this->createArrayIterator($arr);
+        $iterator = $this->getIterator($arr);
         $key = $iterator->key();
 
         $this->assertEquals('first', $key);
@@ -296,12 +286,13 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::key
      */
     public function testNumericalKey()
     {
         $arr = ['first element'];
 
-        $iterator = $this->createArrayIterator($arr);
+        $iterator = $this->getIterator($arr);
         $key = $iterator->key();
 
         $this->assertEquals(0, $key);
@@ -309,21 +300,23 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::unserialize
      * @expectedException PHPUnit_Framework_Error_Warning
      * @expectedExceptionMessage unserialize() expects parameter 1 to be string, object given
      */
     public function testUnserializeWithInvalidArgument()
     {
-        $iterator = $this->createArrayIterator([], 0);
+        $iterator = $this->getIterator([], 0);
         $iterator = $iterator->unserialize(new \stdClass());
     }
 
     /**
      * @test
+     * @group ArrayIterator::unserialize
      */
     public function testUnserializeFromSerialize()
     {
-        $iterator = $this->createArrayIterator(['a', 'b'], 2);
+        $iterator = $this->getIterator(['a', 'b'], 2);
         $iterator->seek(1);
 
         $newIterator = unserialize(serialize($iterator));
@@ -336,10 +329,11 @@ abstract class BasicArrayIteratorTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @test
+     * @group ArrayIterator::getArrayCopy
      */
     public function testArrayCopy()
     {
-        $iterator = $this->createArrayIterator(['a', 'b', 'c']);
+        $iterator = $this->getIterator(['a', 'b', 'c']);
 
         $original = $iterator->getArrayCopy();
 

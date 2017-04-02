@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\FilterIterator;
 /**
  * @group FilterIterator
  */
-class OriginalFilterIteratorTest extends BaseFilterIteratorTest
+class OriginalFilterIteratorTest extends FilterIteratorTestBase
 {
     protected function getIterator(...$params)
     {

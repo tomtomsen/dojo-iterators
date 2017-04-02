@@ -4,7 +4,7 @@ namespace tomtomsen\Iterators\tests\LimitIterator;
 
 use tomtomsen\Iterators\LimitIterator;
 
-class LimitIteratorTest extends BaseLimitIteratorTest
+class LimitIteratorTest extends LimitIteratorTestBase
 {
     public function getIterator(...$params)
     {

@@ -2,10 +2,10 @@
 
 namespace tomtomsen\Iterators\tests\LimitIterator;
 
-abstract class BaseLimitIteratorTest extends \PHPUnit_Framework_TestCase
-{
-    abstract protected function getIterator(...$params);
+use tomtomsen\Iterators\tests\IteratorTestBase;
 
+abstract class LimitIteratorTestBase extends IteratorTestBase
+{
     /**
      * @test
      * @group \LimitIterator::__construct::iterator

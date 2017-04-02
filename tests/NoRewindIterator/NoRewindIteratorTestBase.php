@@ -2,13 +2,13 @@
 
 namespace tomtomsen\Iterators\tests\NoRewindIterator;
 
+use tomtomsen\Iterators\tests\IteratorTestBase;
+
 /**
  * @group NoRewindIterator
  */
-abstract class BasicNoRewindIteratorTest extends \PHPUnit_Framework_TestCase
+abstract class NoRewindIteratorTestBase extends IteratorTestBase
 {
-    abstract protected function getIterator();
-
     /**
      * @test
      * @group NoRewindIterator::__construct

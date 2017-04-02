@@ -8,7 +8,7 @@ namespace tomtomsen\Iterators\tests\InfiniteIterator;
  * @group InfiniteIterator
  * @group \tomtomsen\Iterators\InfiniteIterator
  */
-class OriginalInfiniteIteratorTest extends BasicInfiniteIteratorTest
+class OriginalInfiniteIteratorTest // extends InfiniteIteratorTestBase
 {
     protected function getIterator(...$params)
     {

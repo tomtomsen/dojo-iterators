@@ -2,10 +2,10 @@
 
 namespace tomtomsen\Iterators\tests\ArrayIterator;
 
-class ArrayIteratorTest extends BasicArrayIteratorTest
+class ArrayIteratorTest extends ArrayIteratorTestBase
 {
-    public function getIteratorClass()
+    public function getIterator(...$params)
     {
-        return '\tomtomsen\Iterators\ArrayIterator';
+        return new \tomtomsen\Iterators\ArrayIterator(...$params);
     }
 }

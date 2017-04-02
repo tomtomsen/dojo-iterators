@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\LimitIterator;
 
-class OriginalLimitIteratorTest extends BaseLimitIteratorTest
+class OriginalLimitIteratorTest extends LimitIteratorTestBase
 {
     public function getIterator(...$params)
     {

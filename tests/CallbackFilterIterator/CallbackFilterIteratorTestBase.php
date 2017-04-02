@@ -2,13 +2,13 @@
 
 namespace tomtomsen\Iterators\tests\CallbackFilterIterator;
 
+use tomtomsen\Iterators\tests\IteratorTestBase;
+
 /**
  * @group CallbackFilterIterator;
  */
-abstract class BasicCallbackFilterIteratorTest extends \PHPUnit_Framework_TestCase
+abstract class CallbackFilterIteratorTestBase extends IteratorTestBase
 {
-    abstract protected function getIterator(...$params);
-
     /**
      * @test
      * @group CallbackFilterIterator::__construct::$iterator

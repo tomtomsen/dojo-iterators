@@ -2,17 +2,13 @@
 
 namespace tomtomsen\Iterators\tests\InfiniteIterator;
 
+use tomtomsen\Iterators\tests\IteratorTestBase;
+
 /**
  * Basic InifiteIterator test class
  */
-abstract class BasicInfiniteIteratorTest extends \PHPUnit_Framework_TestCase
+abstract class InfiniteIteratorTestBase extends IteratorTestBase
 {
-    /**
-     * Returns an instance of the InfiniteIterator class
-     * @return mixed an InfiniteIterator class
-     */
-    abstract protected function getIterator(...$params);
-
     /**
      * @test
      * @group InfiniteIterator::__construct

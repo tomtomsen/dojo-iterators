@@ -2,10 +2,10 @@
 
 namespace tomtomsen\Iterators\tests\EmptyIterator;
 
-abstract class BasicEmptyIteratorTest extends \PHPUnit_Framework_TestCase
-{
-    abstract protected function getIterator(...$params);
+use tomtomsen\Iterators\tests\IteratorTestBase;
 
+abstract class EmptyIteratorTestBase extends IteratorTestBase
+{
     public function testValid()
     {
         $iterator = $this->getIterator();

@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\NoRewindIterator;
 
-class OriginalNoRewindIteratorTest extends BasicNoRewindIteratorTest
+class OriginalNoRewindIteratorTest extends NoRewindIteratorTestBase
 {
     protected function getIterator(...$params)
     {

@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\IteratorIterator;
 /**
  * @group IteratorIterator
  */
-class OriginalIteratorIteratorTest extends BasicIteratorIteratorTest
+class OriginalIteratorIteratorTest extends IteratorIteratorTestBase
 {
     protected function getIterator(...$params)
     {

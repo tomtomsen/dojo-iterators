@@ -2,10 +2,10 @@
 
 namespace tomtomsen\Iterators\tests\FilterIterator;
 
-abstract class BaseFilterIteratorTest extends \PHPUnit_Framework_TestCase
-{
-    abstract protected function getIterator(...$params);
+use tomtomsen\Iterators\tests\IteratorTestBase;
 
+abstract class FilterIteratorTestBase extends IteratorTestBase
+{
     public function testGetInnerIterator()
     {
         $empty = new \EmptyIterator();
