@@ -6,6 +6,10 @@ use tomtomsen\Iterators\tests\IteratorTestBase;
 
 abstract class EmptyIteratorTestBase extends IteratorTestBase
 {
+    /**
+     * @test
+     * @group EmptyIterator::valid
+     */
     public function testValid()
     {
         $iterator = $this->getIterator();
@@ -13,6 +17,10 @@ abstract class EmptyIteratorTestBase extends IteratorTestBase
         $this->assertFalse($iterator->valid());
     }
 
+    /**
+     * @test
+     * @group EmptyIterator::next
+     */
     public function testNext()
     {
         $iterator = $this->getIterator();
@@ -24,6 +32,7 @@ abstract class EmptyIteratorTestBase extends IteratorTestBase
 
     /**
      * @test
+     * @group EmptyIterator::current
      * @expectedException \BadMethodCallException
      * @expectedExceptionMessageRegExp /^Accessing the value of an EmptyIterator$/
      */
@@ -37,6 +46,7 @@ abstract class EmptyIteratorTestBase extends IteratorTestBase
 
     /**
      * @test
+     * @group EmptyIterator::key
      * @expectedException \BadMethodCallException
      * @expectedExceptionMessageRegExp /^Accessing the key of an EmptyIterator$/
      */
