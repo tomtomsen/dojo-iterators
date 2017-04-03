@@ -1,0 +1,28 @@
+engines:
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - php
+  phpcodesniffer:
+    enabled: true
+    config:
+      file_extensions: "php"
+    standard: "PSR2"
+    ignore_warnings: true
+  phpmd:
+    enabled: true
+    config:
+      file_extensions:
+        - php
+      rulesets: "cleancode,codesize,controversial,design,naming,unusedcode"
+ratings:
+  paths:
+  - "**.php"
+  - "**.md"
+exclude_paths:
+- tests/
