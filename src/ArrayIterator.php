@@ -37,7 +37,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 
     public function __set($offset, $value)
     {
-        if (($this->flags & 2) == 2) {
+        if (2 == ($this->flags & 2)) {
             $this->offsetSet($offset, $value);
         } else {
             $this->$offset = $value;
@@ -135,7 +135,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
      */
     public function next()
     {
-        $next = next($this->storage);
+        next($this->storage);
         $key = key($this->storage);
 
         if (!isset($key)) {
@@ -211,14 +211,14 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
         natsort($this->storage);
     }
 
-    public function uasort($cmp_function)
+    public function uasort($cmpFunction)
     {
-        uasort($this->storage, $cmp_function);
+        uasort($this->storage, $cmpFunction);
     }
 
-    public function uksort($cmp_function)
+    public function uksort($cmpFunction)
     {
-        uksort($this->storage, $cmp_function);
+        uksort($this->storage, $cmpFunction);
     }
 
     public function getArrayCopy()
