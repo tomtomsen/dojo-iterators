@@ -1,5 +1,8 @@
 # Coding Dojo: Implementation of SPL Iterators
 [![Build Status](https://travis-ci.org/tomtomsen/dojo-iterators.svg?branch=master)](https://travis-ci.org/tomtomsen/dojo-iterators)
+[![Code Climate](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/gpa.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators)
+[![Test Coverage](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/coverage.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators/coverage)
+[![Issue Count](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/issue_count.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators)
 
 To improve my coding skills, I try to implement SPL Iterators on my own.
 
