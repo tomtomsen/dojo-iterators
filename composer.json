@@ -4,7 +4,7 @@
   "autoload": {
     "psr-4": {
       "tomtomsen\\Iterators\\": "src/"
-    },
+    }
   },
   "autoload-dev": {
     "psr-4": {
