@@ -8,6 +8,6 @@ class EmptyIteratorTest extends EmptyIteratorTestBase
 {
     protected function getIterator(...$params)
     {
-        return new EmptyIterator(...$params);
+        return new EmptyIterator();
     }
 }
