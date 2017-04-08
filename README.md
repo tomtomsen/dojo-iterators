@@ -25,7 +25,7 @@ To improve my coding skills, I try to implement SPL Iterators on my own.
 - [ ] [RecursiveCachingIterator](http://php.net/manual/class.recursivecachingiterator.php "Documentation of SPL RecursiveCachingIterator")
 - [ ] [RecursiveCallbackFilterIterator](http://php.net/manual/class.recursivecallbackfilteriterator.php "Documentation of SPL RecursiveCallbackFilterIterator")
 - [ ] [RecursiveDirectoryIterator](http://php.net/manual/class.recursivedirectoryiterator.php "Documentation of SPL RecursiveDirectoryIterator")
-- [ ] [RecursiveFilterIterator](http://php.net/manual/class.recursivefilteriterator.php "Documentation of SPL RecursiveFilterIterator")
+- [x] [RecursiveFilterIterator](http://php.net/manual/class.recursivefilteriterator.php "Documentation of SPL RecursiveFilterIterator")
 - [ ] [RecursiveIteratorIterator](http://php.net/manual/class.recursiveiteratoriterator.php "Documentation of SPL RecursiveIteratorIterator")
 - [ ] [RecursiveRegexIterator](http://php.net/manual/class.recursiveregexiterator.php "Documentation of SPL RecursiveRegexIterator")
 - [ ] [RecursiveTreeIterator](http://php.net/manual/class.recursivetreeiterator.php "Documentation of SPL RecursiveTreeIterator")
