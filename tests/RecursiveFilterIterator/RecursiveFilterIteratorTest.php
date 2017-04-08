@@ -2,7 +2,7 @@
 
 namespace tomtomsen\Iterators\tests\RecursiveFilterIterator;
 
-class RecursiveFilerIteratorTest extends RecursiveFilterIteratorTestBase
+class RecursiveFilterIteratorTest extends RecursiveFilterIteratorTestBase
 {
     protected function getIterator(...$params)
     {
