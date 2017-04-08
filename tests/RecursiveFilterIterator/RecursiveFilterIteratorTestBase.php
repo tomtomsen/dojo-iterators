@@ -3,7 +3,6 @@
 namespace tomtomsen\Iterators\tests\RecursiveFilterIterator;
 
 use tomtomsen\Iterators\tests\IteratorTestBase;
-use tomtomsen\Iterators\tests\RecursiveFilterIterator\RecursiveFilterIteratorImpl;
 
 abstract class RecursiveFilterIteratorTestBase extends IteratorTestBase
 {

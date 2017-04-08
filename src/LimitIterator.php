@@ -2,8 +2,6 @@
 
 namespace tomtomsen\Iterators;
 
-use tomtomsen\Iterators\IteratorIterator;
-
 // require_once __DIR__ . '/../../IteratorIterator/src/IteratorIterator.php';
 
 /**
@@ -18,17 +16,17 @@ class LimitIterator extends IteratorIterator implements \OuterIterator
     public function __construct($iterator, $offset = 0, $count = -1)
     {
         if (!$iterator instanceof \Iterator) {
-            throw new \TypeError('Argument 1 passed to ' . __CLASS__ . '::__construct() must implement interface Iterator, ' . gettype($iterator) . ' given');
+            throw new \TypeError('Argument 1 passed to '.__CLASS__.'::__construct() must implement interface Iterator, '.gettype($iterator).' given');
         }
 
         if (!is_int($offset)) {
-            throw new \TypeError('' . __CLASS__ . '::__construct() expects parameter 2 to be integer, ' . gettype($offset) . ' given');
+            throw new \TypeError(''.__CLASS__.'::__construct() expects parameter 2 to be integer, '.gettype($offset).' given');
         } elseif (0 > $offset) {
             throw new \OutOfRangeException('Parameter offset must be >= 0');
         }
 
         if (!is_int($count)) {
-            throw new \TypeError('' . __CLASS__ . '::__construct() expects parameter 3 to be integer, ' . gettype($count) . ' given');
+            throw new \TypeError(''.__CLASS__.'::__construct() expects parameter 3 to be integer, '.gettype($count).' given');
         } elseif (-1 > $count) {
             throw new \OutOfRangeException('Parameter count must either be -1 or a value greater than or equal 0');
         }
@@ -48,9 +46,9 @@ class LimitIterator extends IteratorIterator implements \OuterIterator
     public function seek($position) /* : int */
     {
         if (!is_numeric($position)) {
-            trigger_error('' . __CLASS__ . '::seek() expects parameter 1 to be integer, ' . gettype($position) . ' given', E_USER_WARNING);
+            trigger_error(''.__CLASS__.'::seek() expects parameter 1 to be integer, '.gettype($position).' given', E_USER_WARNING);
         } elseif ($position < 0) {
-            throw new \OutOfBoundsException('Cannot seek to ' . $position . ' which is below the offset 0');
+            throw new \OutOfBoundsException('Cannot seek to '.$position.' which is below the offset 0');
         }
 
         parent::rewind();
@@ -61,7 +59,7 @@ class LimitIterator extends IteratorIterator implements \OuterIterator
         }
 
         if (!parent::valid()) {
-            throw new \OutOfBoundsException('Seek position ' . (string) $position . ' is out of range');
+            throw new \OutOfBoundsException('Seek position '.(string) $position.' is out of range');
         }
 
         return $this->getPosition();

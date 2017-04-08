@@ -101,7 +101,7 @@ abstract class ArrayIteratorTestBase extends IteratorTestBase
     {
         $iterator = $this->getIterator(['1' => 'first', '2' => 'second', '3' => 'third']);
 
-        $reportLevel = error_reporting(E_ALL ^  E_NOTICE);
+        $reportLevel = error_reporting(E_ALL ^ E_NOTICE);
         $value = $iterator->offsetGet(4);
         error_reporting($reportLevel);
 
@@ -190,7 +190,6 @@ abstract class ArrayIteratorTestBase extends IteratorTestBase
      */
     public function testSetFlags()
     {
-
         $iterator = $this->getIterator([]);
         $iterator['a'] = 'a';
         $iterator->setFlags(3);

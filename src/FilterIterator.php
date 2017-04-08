@@ -2,8 +2,6 @@
 
 namespace tomtomsen\Iterators;
 
-use tomtomsen\Iterators\IteratorIterator;
-
 abstract class FilterIterator extends IteratorIterator implements \OuterIterator
 {
     abstract public function accept() /* : bool */;

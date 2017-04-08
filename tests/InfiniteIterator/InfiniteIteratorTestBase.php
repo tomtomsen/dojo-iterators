@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\InfiniteIterator;
 use tomtomsen\Iterators\tests\IteratorTestBase;
 
 /**
- * Basic InifiteIterator test class
+ * Basic InifiteIterator test class.
  */
 abstract class InfiniteIteratorTestBase extends IteratorTestBase
 {
@@ -17,7 +17,7 @@ abstract class InfiniteIteratorTestBase extends IteratorTestBase
      */
     public function testConstructorWithInvalidArgumentException()
     {
-        $this->getIterator(array());
+        $this->getIterator([]);
     }
 
     /**
