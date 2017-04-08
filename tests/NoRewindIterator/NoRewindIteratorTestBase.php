@@ -17,7 +17,7 @@ abstract class NoRewindIteratorTestBase extends IteratorTestBase
      */
     public function testConstructorWithInvalidArgument()
     {
-        $this->getIterator(array());
+        $this->getIterator([]);
     }
 
     public function testRewind()

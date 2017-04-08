@@ -5,7 +5,7 @@ namespace tomtomsen\Iterators\tests\InfiniteIterator;
 use tomtomsen\Iterators\InfiniteIterator;
 
 /**
- * Tests our InfiniteIterator
+ * Tests our InfiniteIterator.
  *
  * @group InfiniteIterator
  * @group \tomtomsen\Iterators\InfiniteIterator
@@ -13,7 +13,7 @@ use tomtomsen\Iterators\InfiniteIterator;
 class InfiniteIteratorTest extends InfiniteIteratorTestBase
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     protected function getIterator(...$params)
     {

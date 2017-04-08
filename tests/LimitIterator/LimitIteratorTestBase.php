@@ -26,7 +26,7 @@ abstract class LimitIteratorTestBase extends IteratorTestBase
     public function testConstructorInvalidOffsetArgument()
     {
         $empty = new \EmptyIterator();
-        $this->getIterator($empty, array());
+        $this->getIterator($empty, []);
     }
 
     /**
@@ -50,7 +50,7 @@ abstract class LimitIteratorTestBase extends IteratorTestBase
     public function testConstructorInvalidCountArgument()
     {
         $array = new \ArrayIterator(['a', 'b', 'c']);
-        $this->getIterator($array, 0, array());
+        $this->getIterator($array, 0, []);
     }
 
     /**
@@ -198,7 +198,7 @@ abstract class LimitIteratorTestBase extends IteratorTestBase
         $array = new \ArrayIterator(['a', 'b', 'c']);
         $iterator = $this->getIterator($array);
 
-        $iterator->seek(array());
+        $iterator->seek([]);
     }
 
     /**

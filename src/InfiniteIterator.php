@@ -2,10 +2,8 @@
 
 namespace tomtomsen\Iterators;
 
-use tomtomsen\Iterators\IteratorIterator;
-
 /**
- * Implementation of the SPL InfiniteIterator class
+ * Implementation of the SPL InfiniteIterator class.
  *
  * @link http://php.net/manual/class.infiniteiterator.php Documentation of SPL InfiniteIterator
  */

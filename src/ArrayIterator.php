@@ -9,16 +9,16 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     private $beyondLastField;
 
     /**
-     * \ArrayIterator::__construct
+     * \ArrayIterator::__construct.
      */
-    public function __construct($array = array(), $flags = 0)
+    public function __construct($array = [], $flags = 0)
     {
         if (!is_array($array) && !is_object($array)) {
             throw new \InvalidArgumentException('Passed variable is not an array or object, using empty array instead');
         }
 
         if (!is_numeric($flags)) {
-            throw new \TypeError('ArrayIterator::__construct() expects parameter 2 to be integer, ' . gettype($flags) . ' given');
+            throw new \TypeError('ArrayIterator::__construct() expects parameter 2 to be integer, '.gettype($flags).' given');
         }
 
         $this->storage = $array;
@@ -42,12 +42,10 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
         } else {
             $this->$offset = $value;
         }
-
-        return null;
     }
 
     /**
-     * ArrayAccess::offsetExists
+     * ArrayAccess::offsetExists.
      */
     public function offsetExists($offset)
     {
@@ -57,7 +55,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * ArrayAccess::offsetGet
+     * ArrayAccess::offsetGet.
      */
     public function offsetGet($offset)
     {
@@ -67,7 +65,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * ArrayAccess::offsetSet
+     * ArrayAccess::offsetSet.
      */
     public function offsetSet($offset, $value)
     {
@@ -77,7 +75,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * ArrayAccess::offsetUnset
+     * ArrayAccess::offsetUnset.
      */
     public function offsetUnset($offset)
     {
@@ -88,19 +86,18 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 
     protected function validateOffset($offset)
     {
-        if (!is_string($offset) && !is_integer($offset)) {
+        if (!is_string($offset) && !is_int($offset)) {
             trigger_error('Illegal offset type', E_USER_WARNING);
         }
     }
 
     /**
-     * SeekableIterator::seek
+     * SeekableIterator::seek.
      */
     public function seek($position)
     {
-
         if (!is_numeric($position)) {
-            trigger_error('ArrayIterator::seek() expects parameter 1 to be integer, ' . gettype($position) . ' given', E_USER_WARNING);
+            trigger_error('ArrayIterator::seek() expects parameter 1 to be integer, '.gettype($position).' given', E_USER_WARNING);
         }
 
         $this->rewind();
@@ -115,7 +112,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * SeekableIterator::current
+     * SeekableIterator::current.
      */
     public function current()
     {
@@ -123,7 +120,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * SeekableIterator::key
+     * SeekableIterator::key.
      */
     public function key()
     {
@@ -131,7 +128,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * SeekableIterator::next
+     * SeekableIterator::next.
      */
     public function next()
     {
@@ -146,7 +143,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * SeekableIterator::rewind
+     * SeekableIterator::rewind.
      */
     public function rewind()
     {
@@ -155,7 +152,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * SeekableIterator::valid
+     * SeekableIterator::valid.
      */
     public function valid()
     {
@@ -168,7 +165,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * Countable::count
+     * Countable::count.
      */
     public function count()
     {
@@ -176,7 +173,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * Serializable::serialize
+     * Serializable::serialize.
      */
     public function serialize()
     {
@@ -184,7 +181,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
     }
 
     /**
-     * Serializable::unserialize
+     * Serializable::unserialize.
      */
     public function unserialize($serialized)
     {
@@ -228,7 +225,7 @@ class ArrayIterator implements \ArrayAccess, \SeekableIterator, \Countable, \Ser
 
     public function setFlags($flags)
     {
-        $this->flags  = $flags;
+        $this->flags = $flags;
     }
 
     public function getFlags()

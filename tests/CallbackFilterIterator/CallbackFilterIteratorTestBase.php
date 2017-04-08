@@ -17,7 +17,7 @@ abstract class CallbackFilterIteratorTestBase extends IteratorTestBase
      */
     public function testConstructorIteratorInvalidArgument()
     {
-        $this->getIterator(array(), function () {
+        $this->getIterator([], function () {
         });
     }
 
