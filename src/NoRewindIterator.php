@@ -2,8 +2,6 @@
 
 namespace tomtomsen\Iterators;
 
-use tomtomsen\Iterators\IteratorIterator;
-
 /**
  * @see http://php.net/manual/en/class.norewinditerator.php
  */

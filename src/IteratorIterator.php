@@ -16,7 +16,7 @@ class IteratorIterator implements \OuterIterator
         try {
             return $this->iterator->current();
         } catch (\BadMethodCallException $ex) {
-            return null;
+            return;
         }
     }
 
