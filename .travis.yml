@@ -2,18 +2,22 @@ language: php
 
 sudo: false
 
+cache:
+  directories:
+    - $HOME/.composer/cache
+
 php:
   - '7.0'
 #  - '7.1'
 #  - nightly
 
-before_script:
-  - travis_retry composer self-update
-  - travis_retry composer install --no-interaction
+
+install:
+  - travis_retry composer install --prefer-dist --no-interaction --no-suggest
 
 script:
   - vendor/bin/phpcs --standard=PSR2 -n src tests
-  - vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+  - vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
 
 after_success:
   - vendor/bin/test-reporter
