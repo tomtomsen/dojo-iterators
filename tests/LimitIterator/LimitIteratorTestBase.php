@@ -4,7 +4,7 @@ namespace tomtomsen\Iterators\tests\LimitIterator;
 
 use tomtomsen\Iterators\tests\IteratorTestBase;
 
-abstract class BaseLimitIteratorTest extends IteratorTestBase
+abstract class LimitIteratorTestBase extends IteratorTestBase
 {
     /**
      * @test
