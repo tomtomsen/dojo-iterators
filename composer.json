@@ -1,8 +1,21 @@
 {
-    "require-dev": {
-        "phpunit/phpunit": "^5.7",
-        "squizlabs/php_codesniffer": "^2.8",
-        "humbug/humbug": "~1.0@dev",
-        "codeclimate/php-test-reporter": "dev-master"
+  "name": "tomtomsen/iterators",
+  "type": "library",
+  "autoload": {
+    "psr-4": {
+      "tomtomsen\\Iterators\\": "src/"
+    },
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "tomtomsen\\Iterators\\tests\\": "tests/"
     }
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^5.7",
+    "squizlabs/php_codesniffer": "^2.8",
+    "humbug/humbug": "~1.0@dev",
+    "codeclimate/php-test-reporter": "dev-master",
+    "phpstan/phpstan": "^0.6.4"
+  }
 }
