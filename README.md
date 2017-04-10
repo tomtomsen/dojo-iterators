@@ -1,5 +1,6 @@
 # Coding Dojo: Implementation of SPL Iterators
 [![Build Status](https://travis-ci.org/tomtomsen/dojo-iterators.svg?branch=master)](https://travis-ci.org/tomtomsen/dojo-iterators)
+[![StyleCI](https://styleci.io/repos/5724990/shield?style=flat)](https://styleci.io/repos/85702808)
 [![Code Climate](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/gpa.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators)
 [![Test Coverage](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/coverage.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators/coverage)
 [![Issue Count](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/issue_count.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators)
