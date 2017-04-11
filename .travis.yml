@@ -12,6 +12,9 @@ php:
 #  - nightly
 
 
+before_install:
+  - composer --no-interaction global require hirak/prestissimo
+
 install:
   - travis_retry composer install --prefer-dist --no-interaction --no-suggest
 
