@@ -1,4 +1,6 @@
+
 # Coding Dojo: Implementation of SPL Iterators
+
 [![Build Status](https://travis-ci.org/tomtomsen/dojo-iterators.svg?branch=master)](https://travis-ci.org/tomtomsen/dojo-iterators)
 [![StyleCI](https://styleci.io/repos/5724990/shield?style=flat)](https://styleci.io/repos/85702808)
 [![Code Climate](https://codeclimate.com/github/tomtomsen/dojo-iterators/badges/gpa.svg)](https://codeclimate.com/github/tomtomsen/dojo-iterators)
@@ -33,5 +35,6 @@ To improve my coding skills, I try to implement SPL Iterators on my own.
 - [ ] [RegexIterator](http://php.net/manual/class.regexiterator.php "Documentation of SPL RegexIterator")
 
 ## Goals
+
 - Improve PHP 7 knowhow
 - Improve Iterator knowhow
